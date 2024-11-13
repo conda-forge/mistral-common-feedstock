@@ -10,14 +10,11 @@ source:
   sha256: 110e1b937aee99fdcf3cefc6b4e924e7e22ff445246090fe9215051245caa59c
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: true  # [osx or win]
+  noarch: python
 
 requirements:
-  build:
-    - {{ compiler("cxx") }}
-    - {{ stdlib("c") }}
   host:
     - pip
     - python
