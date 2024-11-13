@@ -1,5 +1,6 @@
 {% set name = "mistral-common" %}
 {% set version = "1.4.4" %}
+{% set python_min = python_min|default("3.8") %}
 
 package:
   name: {{ name|lower }}
@@ -10,23 +11,20 @@ source:
   sha256: 110e1b937aee99fdcf3cefc6b4e924e7e22ff445246090fe9215051245caa59c
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: true  # [osx or win]
+  noarch: python
 
 requirements:
-  build:
-    - {{ compiler("cxx") }}
-    - {{ stdlib("c") }}
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - pytorch
     - setuptools
     - setuptools_scm
     - poetry
   run:
-    - python
+    - python >={{ python_min }}
     - jsonschema
     - pillow <11.0.0,>=10.3.0
     - pydantic
@@ -40,7 +38,9 @@ test:
   commands:
     - pip check
   requires:
+    - numpy
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/mistralai/mistral-common
