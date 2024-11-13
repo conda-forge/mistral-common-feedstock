@@ -38,6 +38,7 @@ test:
   commands:
     - pip check
   requires:
+    - numpy
     - pip
     - python {{ python_min }}
 
