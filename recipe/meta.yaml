@@ -1,5 +1,6 @@
 {% set name = "mistral-common" %}
 {% set version = "1.4.4" %}
+{% set python_min = python_min|default("3.8") %}
 
 package:
   name: {{ name|lower }}
@@ -17,13 +18,13 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - pytorch
     - setuptools
     - setuptools_scm
     - poetry
   run:
-    - python
+    - python >={{ python_min }}
     - jsonschema
     - pillow <11.0.0,>=10.3.0
     - pydantic
@@ -38,6 +39,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/mistralai/mistral-common
