@@ -1,5 +1,5 @@
 {% set name = "mistral-common" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 {% set python_min = python_min|default("3.8") %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mistral_common-{{ version }}.tar.gz
-  sha256: c9a2d910db892ab44498fd2a3a2dd18d60c216f9068cdcefd27d24609b6fc2f5
+  sha256: 6f2cc0209baeadc31f78c2275bddb734f167ad1734c8c8596f5338786c594537
 
 build:
   number: 0
