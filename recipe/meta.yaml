@@ -1,6 +1,5 @@
 {% set name = "mistral-common" %}
 {% set version = "1.5.1" %}
-{% set python_min = python_min|default("3.8") %}
 
 package:
   name: {{ name|lower }}
@@ -11,8 +10,8 @@ source:
   sha256: 6f2cc0209baeadc31f78c2275bddb734f167ad1734c8c8596f5338786c594537
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
+  script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
