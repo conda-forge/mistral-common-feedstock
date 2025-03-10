@@ -24,11 +24,11 @@ requirements:
   run:
     - python >={{ python_min }}
     - jsonschema
-    - pillow <11.0.0,>=10.3.0
+    - pillow >=10.3.0
     - pydantic
     - requests
     - sentencepiece
-    - tiktoken <0.8.0,>=0.7.0
+    - tiktoken >=0.7.0
 
 test:
   imports:
