@@ -23,12 +23,14 @@ requirements:
     - poetry
   run:
     - python >={{ python_min }}
-    - jsonschema
+    - jsonschema >=4.21.1
+    - numpy >=1.25
     - pillow >=10.3.0
-    - pydantic
-    - requests
-    - sentencepiece
+    - pydantic >=2.7,<3.0
+    - requests >=2.0.0
+    - sentencepiece >=0.2.0
     - tiktoken >=0.7.0
+    - typing-extensions >=4.11.0
 
 test:
   imports:
