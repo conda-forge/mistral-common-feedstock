@@ -1,5 +1,5 @@
 {% set name = "mistral-common" %}
-{% set version = "1.8.2" %}
+{% set version = "1.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mistral_common-{{ version }}.tar.gz
-  sha256: 964c7fc573f65e1e4befd306e99dad626604a1285ba78e88095815a6f3947cba
+  sha256: 0d1979d82227b625f6d71b3c828176f059da8d0f5a3307cdf53b48409a3970a4
 
 build:
   number: 0
