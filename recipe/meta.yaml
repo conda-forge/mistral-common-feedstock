@@ -27,7 +27,8 @@ requirements:
     - numpy >=1.25
     - pillow >=10.3.0
     - pydantic >=2.7,<3.0
-    - pydantic-extra-types >=2.9
+    - pydantic-extra-types >=2.10.5
+    - pycountry
     - requests >=2.0.0
     - sentencepiece >=0.2.0
     - tiktoken >=0.7.0
