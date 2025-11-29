@@ -6,8 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mistral_common-{{ version }}.tar.gz
-  sha256: 9f6204ede9c807f09040a208a9381ae78ef93e2e5a9cd5202dc12e712a025de8
+  - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mistral_common-{{ version }}.tar.gz
+    sha256: 9f6204ede9c807f09040a208a9381ae78ef93e2e5a9cd5202dc12e712a025de8
+  - url: https://raw.githubusercontent.com/mistralai/mistral-common/v{{ version }}/LICENSE
+    sha256: d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed
+    fn: LICENSE
 
 build:
   number: 0
@@ -40,7 +43,7 @@ test:
   imports:
     - mistral_common
   commands:
-    # - pip check
+    - pip check
   requires:
     - numpy
     - pip
@@ -52,7 +55,7 @@ about:
   home: https://github.com/mistralai/mistral-common
   summary: Set of tools to help you work with Mistral models
   license: Apache-2.0
-  license_file: LICENCE
+  license_file: LICENSE
 
 extra:
   recipe-maintainers:
