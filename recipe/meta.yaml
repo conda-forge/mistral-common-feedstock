@@ -22,7 +22,6 @@ requirements:
     - pip
     - python {{ python_min }}
     - setuptools
-    - setuptools_scm
     - wheel
   run:
     - python >={{ python_min }}
@@ -31,11 +30,9 @@ requirements:
     - pillow >=10.3.0
     - pydantic >=2.7,<3.0
     - pydantic-extra-types >=2.10.5
-    - pydantic-settings
     - pycountry
     - requests >=2.0.0
     - sentencepiece >=0.2.0
-    - setuptools
     - tiktoken >=0.7.0
     - typing-extensions >=4.11.0
 
