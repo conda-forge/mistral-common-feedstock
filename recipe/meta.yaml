@@ -22,7 +22,6 @@ requirements:
     - pip
     - python {{ python_min }}
     - setuptools
-    - setuptools_scm
     - wheel
   run:
     - python >={{ python_min }}
@@ -48,8 +47,6 @@ test:
     - numpy
     - pip
     - python {{ python_min }}
-  downstreams:
-    - mistral-inference
 
 about:
   home: https://github.com/mistralai/mistral-common
