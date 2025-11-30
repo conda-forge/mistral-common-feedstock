@@ -1,13 +1,16 @@
 {% set name = "mistral-common" %}
-{% set version = "1.8.4" %}
+{% set version = "1.8.5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mistral_common-{{ version }}.tar.gz
-  sha256: e611c16ef59c2b60ffdecef4d5e9158e1bf838fad6bad34aa050123601af703a
+  - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mistral_common-{{ version }}.tar.gz
+    sha256: 9f6204ede9c807f09040a208a9381ae78ef93e2e5a9cd5202dc12e712a025de8
+  - url: https://raw.githubusercontent.com/mistralai/mistral-common/v{{ version }}/LICENCE
+    sha256: 5ed6f79e77734b5a60740dd821af5ecac9a6f33709c860eea4e20fcb6cca7fcc
+    fn: LICENSE
 
 build:
   number: 0
@@ -19,8 +22,7 @@ requirements:
     - pip
     - python {{ python_min }}
     - setuptools
-    - setuptools_scm
-    - poetry
+    - wheel
   run:
     - python >={{ python_min }}
     - jsonschema >=4.21.1
@@ -28,8 +30,11 @@ requirements:
     - pillow >=10.3.0
     - pydantic >=2.7,<3.0
     - pydantic-extra-types >=2.10.5
+    - pydantic-settings
+    - pycountry
     - requests >=2.0.0
     - sentencepiece >=0.2.0
+    - setuptools
     - tiktoken >=0.7.0
     - typing-extensions >=4.11.0
 
@@ -42,14 +47,12 @@ test:
     - numpy
     - pip
     - python {{ python_min }}
-  downstreams:
-    - mistral-inference
 
 about:
   home: https://github.com/mistralai/mistral-common
   summary: Set of tools to help you work with Mistral models
   license: Apache-2.0
-  license_file: LICENCE
+  license_file: LICENSE
 
 extra:
   recipe-maintainers:
