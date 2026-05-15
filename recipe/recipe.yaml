@@ -1,0 +1,68 @@
+schema_version: 1
+
+context:
+  name: mistral-common
+  version: "1.11.2"
+  python_min: "3.10"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mistral_common-${{ version }}.tar.gz
+  sha256: 79f68fc2d1190f28637f40e053f919c8c2697e00b2aa679ddee562a95183f4ad
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+    - wheel
+  run:
+    - click >=8.1.0
+    - fastapi >=0.118.3
+    - jsonschema >=4.21.1
+    - numpy >=1.25
+    - pillow >=10.3.0
+    - pydantic >=2.7,<3.0
+    - pydantic-extra-types >=2.10.5
+    - pydantic-settings
+    - pycountry
+    - python >=${{ python_min }},<3.15
+    - requests >=2.0.0
+    - sentencepiece >=0.2.0
+    - setuptools
+    - tiktoken >=0.7.0
+    - typing-extensions >=4.11.0
+    - uvicorn
+
+tests:
+  - script:
+      - pip check
+      - python -c "import mistral_common"
+      - mistral_common --help
+      - python run_test.py
+    files:
+      recipe:
+        - run_test.py
+    requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+
+about:
+  homepage: https://github.com/mistralai/mistral-common
+  repository: https://github.com/mistralai/mistral-common
+  summary: Set of tools to help you work with Mistral models
+  license: Apache-2.0
+  license_file: LICENCE
+
+extra:
+  recipe-maintainers:
+    - jeongseok-meta
