@@ -9,6 +9,8 @@ Package license: Apache-2.0
 
 Summary: Set of tools to help you work with Mistral models
 
+Development: https://github.com/mistralai/mistral-common
+
 Current build status
 ====================
 
