@@ -5,7 +5,7 @@
 
 [workspace]
 name = "mistral-common-feedstock"
-version = "2026.5.29"  # conda-smithy version used to generate this file
+version = "2026.6.14"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/mistral-common-feedstock"
 authors = ["@conda-forge/mistral-common"]
 channels = ["conda-forge"]
