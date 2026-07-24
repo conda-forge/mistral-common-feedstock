@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: mistral-common
-  version: "1.11.6"
+  version: "1.11.7"
   python_min: "3.10"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mistral_common-${{ version }}.tar.gz
-  sha256: 35ed428e0e886808f0c048adac56843ce77d6cee13c1b54a045ad8d11e77c756
+  sha256: d3b79583595cf6d96a2ab33e42cb8449768383147b8c56cac5a4f193be19d20d
 
 build:
   number: 0
