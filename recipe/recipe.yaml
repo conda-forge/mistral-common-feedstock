@@ -2,8 +2,9 @@ schema_version: 1
 
 context:
   name: mistral-common
-  version: "1.12.0"
-  python_min: "3.10"
+  version: "1.13.0"
+  # Upstream 1.13 requires Python >=3.11,<3.16.
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +12,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mistral_common-${{ version }}.tar.gz
-  sha256: d0f150926733cf422d4750ca19b47568df1f714557c9054a432b866f1f30bf52
+  sha256: 8559b6e22e9b15d4d7445ae34db6d27578f3a6c0e3d74c5fd57b4bf2db543333
 
 build:
   number: 0
@@ -28,13 +29,14 @@ requirements:
     - click >=8.1.0
     - fastapi >=0.118.3
     - jsonschema >=4.21.1
-    - numpy >=1.25
+    # Upstream caps numpy <2.4 on Python <=3.12; noarch metadata cannot express the marker, so cap for all.
+    - numpy >=1.25,<2.4
     - pillow >=10.3.0
-    - pydantic >=2.7,<3.0
+    - pydantic >=2.12,<3.0
     - pydantic-extra-types >=2.10.5
-    - pydantic-settings
+    - pydantic-settings >=2.9.1
     - pycountry
-    - python >=${{ python_min }},<3.15
+    - python >=${{ python_min }},<3.16
     - requests >=2.0.0
     - sentencepiece >=0.2.0
     - setuptools

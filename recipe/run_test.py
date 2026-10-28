@@ -5,12 +5,12 @@ from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
 
 
 def main():
-    message = UserMessage.model_validate_ignore_extra(
+    message = UserMessage.from_openai(
         {"role": "user", "content": "hello", "name": "ignored"}
     )
     assert message == UserMessage(content="hello")
 
-    chunk = TextChunk.model_validate_ignore_extra(
+    chunk = TextChunk.from_openai(
         {"type": "text", "text": "hi", "annotations": []}
     )
     assert chunk == TextChunk(text="hi")
