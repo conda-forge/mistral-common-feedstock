@@ -29,7 +29,8 @@ requirements:
     - click >=8.1.0
     - fastapi >=0.118.3
     - jsonschema >=4.21.1
-    - numpy >=1.25
+    # Upstream caps numpy <2.4 on Python <=3.12; noarch metadata cannot express the marker, so cap for all.
+    - numpy >=1.25,<2.4
     - pillow >=10.3.0
     - pydantic >=2.12,<3.0
     - pydantic-extra-types >=2.10.5
